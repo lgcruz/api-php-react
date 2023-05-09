@@ -1,5 +1,12 @@
 <?php
 
+    function deleteEmployee($id)
+    {
+        $bd = getConnection();
+        $sentencia = $bd->prepare("DELETE FROM employee WHERE employeeID = ?");
+        return $sentencia->execute([$id]);
+    }
+
     function getEmployees()
     {
         $bd = getConnection();
